@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+npm run lint
+npm run prettier
+npm run coverage
+git add .
+git commit --amend --no-edit

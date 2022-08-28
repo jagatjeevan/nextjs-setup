@@ -6,6 +6,15 @@ This project is created with [`create-next-app`](https://github.com/vercel/next.
 
 - [NextJs](https://nextjs.org/)
 - [React](https://reactjs.org/)
+- [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
+
+## Other good things done here
+
+- Prettier for auto formatting and consistency
+- Nvm for managing node versions
+- Husky for precommit hooks
+- Commit message validator for consistency in commit message
+- VS Code settings for editor support
 
 ## Pre-requisites
 
@@ -42,3 +51,7 @@ If you are using VS Code, create a file .vscode/settings.json and paste this sec
   "editor.formatOnSave": true
 }
 ```
+
+### Note
+
+- We are using Rust (default given by Nextjs) over Babel.
