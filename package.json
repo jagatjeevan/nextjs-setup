@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prettier:fix": "prettier --write .",
+    "prettier": "prettier --check .",
+    "prepare": "husky install"
   },
   "dependencies": {
     "next": "12.2.5",
@@ -14,7 +17,17 @@
     "react-dom": "18.2.0"
   },
   "devDependencies": {
+    "commit-message-validator": "^1.0.2",
     "eslint": "8.23.0",
-    "eslint-config-next": "12.2.5"
+    "eslint-config-next": "12.2.5",
+    "husky": "^8.0.0",
+    "prettier": "^2.7.1"
+  },
+  "config": {
+    "commit-message-validator": {
+      "_comment": "Pattern can be Regex string or array of Regex string",
+      "pattern": "^\\d{4}\\s\\|\\s[a-z|A-Z]+/?[a-z|A-Z]+\\s\\|\\s.+$",
+      "errorMessage": "  \n\n❌  Your commit message is invalid. Please author your commit in the following pattern:\n\n✅  0000 | Pair1/Pair2 | Your awesome commit message.\n\n"
+    }
   }
 }
