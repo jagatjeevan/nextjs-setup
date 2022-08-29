@@ -9,7 +9,10 @@ const TestStateOfComponent = (props) => {
     setTheme(props.themeContext.state.currentTheme);
   }, [props.themeContext]);
 
-  const changeTheme = () => props.themeContext.dispatch.changeThemeTo('light');
+  const changeTheme = () => {
+    if (theme === 'dark') return props.themeContext.dispatch.changeThemeTo('light');
+    return props.themeContext.dispatch.changeThemeTo('dark');
+  };
 
   return (
     <>
@@ -34,7 +37,10 @@ describe('Theme Provider', () => {
     const button = screen.getByText(/Change theme/i);
     expect(button).toBeInTheDocument;
     fireEvent.click(button);
-    const heading = await screen.findByRole('heading', { level: 1 });
+    let heading = await screen.findByRole('heading', { level: 1 });
     await expect(heading.textContent).toBe('light');
+    fireEvent.click(button);
+    heading = await screen.findByRole('heading', { level: 1 });
+    await expect(heading.textContent).toBe('dark');
   });
 });
