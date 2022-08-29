@@ -1,13 +1,9 @@
-import styles from '../styles/Home.module.css';
+import Heading from '../components/Heading';
 
 export default function Home() {
   return (
-    <div className={styles.container}>
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-      </main>
-    </div>
+    <article className="bg-slate-600 h-full place-content-center grid">
+      <Heading />
+    </article>
   );
 }
