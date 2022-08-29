@@ -28,6 +28,8 @@ const customJestConfig = {
     '<rootDir>/.next/',
     'next.config.js',
     '<rootDir>/public',
+    'postcss.config.js',
+    'tailwind.config.js',
   ],
 };
 

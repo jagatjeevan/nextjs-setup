@@ -9,6 +9,7 @@
     "start": "next start",
     "lint": "next lint",
     "test": "jest",
+    "test:watch": "jest --watch",
     "coverage": "jest --coverage && open coverage/lcov-report/index.html",
     "prettier:fix": "prettier --write .",
     "prettier": "prettier --check .",
@@ -22,6 +23,7 @@
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.3.0",
+    "@testing-library/user-event": "^14.4.3",
     "autoprefixer": "^10.4.8",
     "commit-message-validator": "^1.0.2",
     "eslint": "8.23.0",
