@@ -31,6 +31,14 @@ const customJestConfig = {
     'postcss.config.js',
     'tailwind.config.js',
   ],
+  coverageThreshold: {
+    global: {
+      branches: 100,
+      functions: 92.5,
+      lines: 100,
+      statements: 96,
+    },
+  },
 };
 
 // createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async

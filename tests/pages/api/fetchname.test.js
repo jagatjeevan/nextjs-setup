@@ -1,13 +1,13 @@
-import hello from '../../../src/pages/api/hello';
+import fetchName from '../../../src/pages/api/fetchname';
 
 const statusMock = jest.fn();
 const jsonMock = jest.fn();
 
-test('/api/hello', () => {
+test('/api/fetchname', () => {
   const req = { method: 'GET' };
   const res = { status: statusMock };
   statusMock.mockReturnValue({ json: jsonMock });
-  hello(req, res);
+  fetchName(req, res);
   expect(statusMock).toHaveBeenCalledWith(200);
   expect(jsonMock).toHaveBeenCalledWith({
     name: 'John Doe',
