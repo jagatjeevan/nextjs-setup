@@ -1,6 +1,7 @@
 import { withTheme } from '../context/themeContext';
 import { useEffect, useState } from 'react';
 import { fetchName } from '../actions/fetchName';
+import { getConfig } from '../configs/appConfig';
 
 export const Heading = (props) => {
   const { state } = props.themeContext;
@@ -18,6 +19,8 @@ export const Heading = (props) => {
         Welcome to <a href="https://nextjs.org">Next.js!</a> {getName()}
       </h1>
       Current Theme : <strong data-testid="currentTheme">{state.currentTheme}</strong>
+      <p>My SECRET_KEY : {getConfig('SECRET_KEY')}</p>
+      My public key : {process.env.NEXT_PUBLIC_ANALYTICS_KEY}
     </div>
   );
 };
