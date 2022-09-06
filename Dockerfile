@@ -6,12 +6,13 @@ COPY package.json .
 RUN npm install
 
 COPY . .
+
+ENV NODE_ENV=production
 RUN npm run build
 
 
 
 FROM node:16.13.2-alpine as app
-ENV NODE_ENV=production
 WORKDIR /app
 
 COPY --from=build /build/.next ./.next
