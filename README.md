@@ -7,6 +7,7 @@ This project is created with [`create-next-app`](https://github.com/vercel/next.
 - [NextJs](https://nextjs.org/)
 - [React](https://reactjs.org/)
 - [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
+- [Tailwind CSS](https://tailwindcss.com/docs/guides/nextjs)
 
 ## Other good things done here
 
