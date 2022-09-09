@@ -1,25 +1,31 @@
-FROM node:16.13.2-alpine as build 
+FROM node:16.13.2-alpine AS deps
 #Check nvm version before updating above image version
 
-WORKDIR /build
-COPY package.json .
-RUN npm install
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci
 
+FROM node:16.13.2-alpine AS builder
+WORKDIR /app
+COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
-ENV NODE_ENV=production
 RUN npm run build
 
-
-
-FROM node:16.13.2-alpine as app
+FROM node:16.13.2-alpine AS runner
 WORKDIR /app
 
-COPY --from=build /build/.next ./.next
-COPY --from=build /build/package*.json ./
-COPY --from=build /build/public ./public
-COPY --from=build /build/next.config.js ./
-COPY --from=build /build/node_modules ./node_modules/.
+ENV NODE_ENV production
+
+COPY --from=builder /app/next.config.js ./
+COPY --from=builder /app/public ./public
+COPY --from=builder /app/package.json ./package.json
+
+COPY --from=builder /app/.next/standalone ./
+COPY --from=builder /app/.next/static ./.next/static
 
 EXPOSE 3000
-CMD ["npm" , "run" , "start"]
+
+ENV PORT 3000
+
+CMD ["node", "server.js"]
