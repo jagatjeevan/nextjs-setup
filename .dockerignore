@@ -1,0 +1,14 @@
+node_modules
+.next
+
+.husky
+.swc
+
+.gitignore
+.prettierignore
+.prettierrc.json
+
+.env
+.eslintrc.json
+.nvmrc
+
