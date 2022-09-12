@@ -1,9 +1,13 @@
-import { withTheme } from '../context/themeContext';
-import { useEffect, useState } from 'react';
+import { ThemeContext, withTheme } from '../context/themeContext';
+import { FC, useEffect, useState } from 'react';
 import { fetchName } from '../actions/fetchName';
 import { getConfig } from '../configs/appConfig';
 
-export const Heading = (props) => {
+interface HeadingPropsType {
+  themeContext: ThemeContext;
+}
+
+export const Heading: FC<HeadingPropsType> = (props: HeadingPropsType) => {
   const { state } = props.themeContext;
   const [name, setName] = useState('');
 

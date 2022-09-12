@@ -56,3 +56,8 @@ If you are using VS Code, create a file .vscode/settings.json and paste this sec
 ### Note
 
 - We are using Rust (default given by Nextjs) over Babel.
+
+### TODO
+
+- create models
+- seggregate types into another folder
