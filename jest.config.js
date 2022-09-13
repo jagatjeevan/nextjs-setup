@@ -21,7 +21,7 @@ const customJestConfig = {
     'node_modules',
     '<rootDir>/public',
   ],
-  collectCoverageFrom: ['<rootDir>/src/pages', '**/*.{js,jsx,tsx}'],
+  collectCoverageFrom: ['<rootDir>/src/pages', '**/*.{js,jsx,tsx,ts}'],
   coveragePathIgnorePatterns: [
     '<rootDir>/coverage/',
     'jest.config.js',

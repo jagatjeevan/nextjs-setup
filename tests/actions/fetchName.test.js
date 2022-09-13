@@ -10,20 +10,9 @@ describe('fetchName', () => {
     jest.clearAllMocks();
   });
 
-  test('fetches the name successfully', () => {
-    axios.post.mockResolvedValue({ data: 'test' });
-    fetchName().then((res) => {
+  test('fetches the name', () => {
+    fetchName().then(() => {
       expect(axios.post).toHaveBeenCalledWith(`${url.baseUrl}/fetchname`);
-      expect(res).toBe('test');
-    });
-  });
-
-  test('returns error for unsuccessful', () => {
-    const mockError = { data: 'error' };
-    axios.post.mockRejectedValueOnce(mockError);
-    fetchName().catch((res) => {
-      expect(axios.post).toHaveBeenCalledWith(`${url.baseUrl}/fetchname`);
-      expect(res).toBe(mockError);
     });
   });
 });

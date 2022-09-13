@@ -10,12 +10,24 @@ interface HeadingPropsType {
 export const Heading: FC<HeadingPropsType> = (props: HeadingPropsType) => {
   const { state } = props.themeContext;
   const [name, setName] = useState('');
+  const [err, setError] = useState(false);
+  const [errMsg, setErrMsg] = useState('');
 
   useEffect(() => {
-    fetchName().then((data) => setName(data.name));
+    fetchName()
+      .then((data) => {
+        setName(data.data.name);
+      })
+      .catch((err) => {
+        setError(true);
+        setErrMsg(err.message);
+      });
   }, []);
 
-  const getName = () => (name !== '' ? <strong data-testid="name">{name}</strong> : null);
+  const getName = () => {
+    if (err) return <strong data-testid="errorMsg">{errMsg}</strong>;
+    return <strong data-testid="name">{name}</strong>;
+  };
 
   return (
     <div>
